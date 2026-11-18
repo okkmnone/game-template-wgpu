@@ -274,18 +274,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "core"
-version = "0.1.0"
-dependencies = [
- "glam",
- "serde",
- "serde_json",
- "thiserror 2.0.21",
- "wgpu",
- "winit",
-]
-
-[[package]]
 name = "core-foundation"
 version = "0.9.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -473,7 +461,7 @@ name = "game"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "core",
+ "kit",
 ]
 
 [[package]]
@@ -714,6 +702,18 @@ name = "khronos_api"
 version = "3.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e2db585e1d738fc771bf08a151420d3ed193d9d895a36df7f6f8a9456b911ddc"
+
+[[package]]
+name = "kit"
+version = "0.1.0"
+dependencies = [
+ "glam",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.21",
+ "wgpu",
+ "winit",
+]
 
 [[package]]
 name = "libc"

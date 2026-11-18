@@ -1,5 +1,6 @@
 #[derive(Debug, thiserror::Error)]
-pub enum AppError {
+#[non_exhaustive]
+pub enum KitError {
     #[error(transparent)]
     IoError(#[from] std::io::Error),
 
@@ -7,4 +8,4 @@ pub enum AppError {
     SerdeJsonError(#[from] serde_json::Error),
 }
 
-pub type AppResult<T> = Result<T, AppError>;
+pub type Result<T> = std::result::Result<T, KitError>;

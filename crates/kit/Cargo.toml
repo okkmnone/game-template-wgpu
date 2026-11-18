@@ -1,5 +1,5 @@
 [package]
-name = "core"
+name = "kit"
 edition.workspace = true
 publish = false
 version.workspace = true
@@ -9,5 +9,5 @@ glam = { version = "0.34.3", features = ["serde", "bytemuck"] }
 serde.workspace = true
 serde_json.workspace = true
 thiserror = "2.0.21"
-wgpu = "30.0.1"
+wgpu = { workspace = true, features = ["naga-ir"] }
 winit = "0.30.13"

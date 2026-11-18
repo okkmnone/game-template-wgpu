@@ -3,6 +3,10 @@ set windows-shell := ["cmd.exe", "/c"]
 _default:
     just --list
 
+check:
+    cargo check
+    cargo clippy
+
 fmt:
     cargo fmt
 

@@ -1,18 +1,20 @@
 use anyhow::{Context, Result};
 
-use core::Config;
-
+use kit::config::Config;
 use std::path::PathBuf;
 
 fn main() -> Result<()> {
     let config = {
         let path = PathBuf::from("config.json");
-        let content = std::fs::read_to_string(&path).context("Failed to load file content")?;
-        let config = Config::new(&content)
-            .with_context(|| format!("Failed to load configuration from {}", path.display()))?;
-        config
+        let content = std::fs::read_to_string(&path).context(concat!(
+            "Failed to load file content from `",
+            kit::default_config_file!(),
+            "`",
+        ))?;
+        Config::new(&content)
+            .with_context(|| format!("Failed to load configuration from {}", path.display()))?
     };
-    core::run(config)?;
+    kit::run(config)?;
 
     Ok(())
 }
